@@ -1,10 +1,13 @@
-@if (Session::has('flash_message_error'))
+<link rel="stylesheet" href="{{ asset('plugins/noty/lib/noty.css') }}">
+<script src="{{ asset('plugins/noty/lib/noty.js') }}"></script>
+
+@if (Session::has('error'))
     <script>
         new Noty({
             type: 'error',
             layout: 'topRight',
             theme: 'mint',
-            text: '<?= Session::get('flash_message_error') ?>',
+            text: '<?= Session::get('error') ?>',
             timeout: 5000,
             progressBar: true,
             closeWith: ['click', 'button'],

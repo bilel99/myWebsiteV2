@@ -9,6 +9,18 @@
         <a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a>
     </li>
 
+    <li class="user">
+        <a href="{{route('user.index')}}"><i class="fa fa-user"></i>User</a>
+    </li>
+
+    <li class="homePage">
+        <a href="#"><i class="fa fa-home"></i>Home page</a>
+            <ul>
+                <li><a href="{{route('homePage.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                <li><a href="{{route('homePage.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
+            </ul>
+    </li>
+
 
 
 

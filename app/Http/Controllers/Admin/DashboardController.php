@@ -11,6 +11,11 @@ class DashboardController extends Controller
     {
     }
 
+    public static function instanced_date(){
+        $date = new \App\Helpers\DatesSecondary();
+        return $date;
+    }
+
     public function index(){
         return view('admin.dashboard.index');
     }

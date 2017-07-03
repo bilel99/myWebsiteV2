@@ -22,7 +22,10 @@
 */
 // Dashboard
 Route::get('/dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@index']);
-
+// User
+Route::resource('/dashboard/user', 'Admin\UserController', ['only' => ['index', 'show', 'edit', 'update', 'destroy']]);
+// Home-page
+Route::resource('/dashboard/homePage', 'Admin\HomePageController');
 
 
 

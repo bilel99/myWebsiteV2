@@ -38,7 +38,6 @@
 </head>
 <body>
 
-
 <div>
     @include('admin.layout.error')
     @include('admin.layout.errors_request')

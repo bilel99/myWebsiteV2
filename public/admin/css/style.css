@@ -1215,28 +1215,22 @@ li {
     width: 100%;
 }
 
-/** Contenu Mail Pattern Mail -- Gestion Email **/
-.contenu-mail {
-    border: 4px solid transparent;
-    background-color: #FFF;
-    color: #000;
-}
-
 /** Gestion Couleur Back-Office **/
 #form-user-delete {
     display: inline;
 }
 
-#form-patternMail-delete {
+#form-homepage-delete {
     display: inline;
 }
 
+/* Les couleurs des boutons d'action */
 .ico_show  {
     color: #0a568c;
 }
 
 .ico_edit {
-    color: #2ab27b;
+    color: #FFA500;
 }
 
 .ico_delete {

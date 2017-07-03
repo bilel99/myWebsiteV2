@@ -5,6 +5,8 @@
  ********************************************************/
 $(document).ready(function () {
     let ajax = new Ajax();
+    ajax.delete_user_row();
+    ajax.delete_homepage_row();
 });
 
 
@@ -27,3 +29,33 @@ $(document).ready(function(){
     }
 
 });
+
+/**
+ * Générer pseudo
+ * @param champ_cible
+ */
+function generer_pseudo(champ_cible) {
+    let ok = 'abcdefghijklmnopqrstuvwxyz1234567890';
+    let pass = '';
+    let longueur = 8;
+    for(i=0;i<longueur;i++){
+        var wpos = Math.round(Math.random()*ok.length);
+        pass+=ok.substring(wpos,wpos+1);
+    }
+    document.getElementById(champ_cible).value = pass;
+}
+
+/**
+ * Générer password
+ * @param champ_cible
+ */
+function generer_password(champ_cible) {
+    let ok = 'azertyuiopqsdfghjklmwxcvbn0123456789AZERTYUIOPQSDFGHJKLMWXCVBN@&!_';
+    let pass = '';
+    let longueur = 8;
+    for(i=0;i<longueur;i++){
+        var wpos = Math.round(Math.random()*ok.length);
+        pass+=ok.substring(wpos,wpos+1);
+    }
+    document.getElementById(champ_cible).value = pass;
+}

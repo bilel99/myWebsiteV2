@@ -15,16 +15,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $table = 'user';
     protected $guarded = [];
 
-
     public function role(){
         return $this->belongsTo('\App\Role', 'role_id');
     }
 
-
-
     public function getCreateddateAttribute(){
         return date('d/m/Y H\Hi', date_timestamp_get(date_create($this->created_at)));
     }
-
-
 }
