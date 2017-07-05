@@ -38,7 +38,7 @@
                                 </div>
                             </div>
 
-                            <!-- Modification champ titre -->
+                            <!-- Création champ titre -->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     {!! Form::label('titre', 'Titre * :', array('class' => 'form-control')) !!}
@@ -49,7 +49,7 @@
                                     {!! Form::text('titre', '', array('class'=>'form-control', 'name'=>'titre', 'id'=>'titre', 'placeholder' => 'Votre titre',  'value'=>old('titre'))) !!}
                                 </div>
                             </div>
-                            <!-- Modification champ description -->
+                            <!-- Création champ description -->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     {!! Form::label('description', 'Description * :', array('class' => 'form-control')) !!}
@@ -60,7 +60,7 @@
                                     {!! Form::text('description', '', array('class'=>'form-control', 'name'=>'description', 'id'=>'description', 'placeholder' => 'Votre description',  'value'=>old('description'))) !!}
                                 </div>
                             </div>
-                            <!-- Modification champ a propos -->
+                            <!-- Création champ a propos -->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     {!! Form::label('apropos', 'A propos * :', array('class' => 'form-control')) !!}
@@ -71,7 +71,7 @@
                                     {!! Form::text('apropos', '', array('class'=>'form-control', 'name'=>'apropos', 'id'=>'apropos', 'placeholder' => 'Votre à propos',  'value'=>old('apropos'))) !!}
                                 </div>
                             </div>
-                            <!-- Modification champ Image -->
+                            <!-- Création champ Image -->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     {!! Form::label('image', 'Image * :', array('class' => 'form-control')) !!}

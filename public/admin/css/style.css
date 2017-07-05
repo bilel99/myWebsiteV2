@@ -1224,6 +1224,18 @@ li {
     display: inline;
 }
 
+#form-phraseculte-delete {
+    display: inline;
+}
+
+#form-temoignage-delete {
+    display: inline;
+}
+
+#form-contact-delete {
+    display: inline;
+}
+
 /* Les couleurs des boutons d'action */
 .ico_show  {
     color: #0a568c;

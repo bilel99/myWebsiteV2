@@ -12,8 +12,7 @@ class PhCulte extends Model {
         return $this->belongsTo('\App\Langue', 'langue_id');
     }
 
-
-    public function getCreatedAtAttribute($value){
-        return date('d/m/Y H\Hi', date_timestamp_get(date_create($value)));
+    public function getCreateddateAttribute(){
+        return date('d/m/Y H\Hi', date_timestamp_get(date_create($this->created_at)));
     }
 }

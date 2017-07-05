@@ -26,8 +26,18 @@ Route::get('/dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardC
 Route::resource('/dashboard/user', 'Admin\UserController', ['only' => ['index', 'show', 'edit', 'update', 'destroy']]);
 // Home-page
 Route::resource('/dashboard/homePage', 'Admin\HomePageController');
-
-
+// Rôle User
+Route::resource('/dashboard/roleUser', 'Admin\RoleUserController', ['only' => ['index', 'update']]);
+// Phrase Culte
+Route::resource('/dashboard/phraseculte', 'Admin\PhraseculteController');
+// Témoignage
+Route::resource('/dashboard/temoignage', 'Admin\TemoignageController');
+// CGU
+Route::resource('/dashboard/cgu', 'Admin\CguController', ['only' => ['index', 'edit', 'update', 'show']]);
+// Langue
+Route::resource('/dashboard/langue', 'Admin\LangueController', ['only' => ['index', 'edit', 'update']]);
+// Contact
+Route::resource('/dashboard/contact', 'Admin\ContactController', ['only' => ['index', 'show', 'destroy']]);
 
 
 /*
