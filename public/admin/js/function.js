@@ -10,6 +10,8 @@ $(document).ready(function () {
     ajax.delete_phraseculte_row();
     ajax.delete_temoignage_row();
     ajax.delete_contact_row();
+    ajax.delete_portfolios_row();
+    ajax.delete_contact_done_row();
 });
 
 

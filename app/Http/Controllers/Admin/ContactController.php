@@ -50,4 +50,24 @@ class ContactController extends Controller
         }
         return redirect()->route('contact.index');
     }
+
+    public function done(Request $request, Contact $contact)
+    {
+        if($contact->done === 0) {
+            $contact->done = 1;
+            $contact->save();
+        } else {
+            $contact->done = 0;
+            $contact->save();
+        }
+
+        // AJAX
+        if($request->ajax()){
+            return response()->json([
+               'done' => $contact->done
+            ]);
+        }
+        return redirect()->route('contact.index');
+    }
+
 }

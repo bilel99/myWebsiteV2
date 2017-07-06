@@ -38,6 +38,22 @@
         </ul>
     </li>
 
+    <li class="portfolio">
+        <a href="#"><i class="fa fa-cube"></i>Portfolio</a>
+        <ul>
+            <li><a href="{{route('portfolios.index')}}"><i class="fa fa-pie-chart"></i>Portfolios</a></li>
+            <li><a href="{{route('portfolios.create')}}"><i class="fa fa-plus-circle"></i>Création Portfolios</a></li>
+        </ul>
+    </li>
+
+    <li class="cv">
+        <a href="#"><i class="fa fa-tasks"></i>CV</a>
+        <ul>
+            <li><a href="{{route('cv.index')}}"><i class="fa fa-pie-chart"></i>CV</a></li>
+            <li><a href="{{route('cv.create')}}"><i class="fa fa-plus-circle"></i>Création CV</a></li>
+        </ul>
+    </li>
+
 
 
 
@@ -45,7 +61,7 @@
 
 
     <!-- TODO Les models 1 étage et 2 étages -->
-    <li><a href="#"><i class="fa fa-desktop"></i>Categorie 2 étages</a>
+    <!--li><a href="#"><i class="fa fa-desktop"></i>Categorie 2 étages</a>
         <ul>
             <li><a href="#">Sous categorie 1</a></li>
             <li><a href="#">Sous categorie 2</a></li>
@@ -64,5 +80,9 @@
                 </ul>
             </li>
         </ul>
-    </li>
+    </li-->
+
+
+
+
 </ul>

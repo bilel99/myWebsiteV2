@@ -297,4 +297,93 @@ class Ajax {
         });
     }
 
+    /**
+     *
+     */
+    delete_portfolios_row(){
+        $('.portfolios_delete').on('click', function(e){
+            e.preventDefault();
+            let form = $('#form-portfolios-delete');
+            let url = form.attr('action');
+            let data = form.serialize();
+            let myUrl = window.location.href.substr(0, 56);
+
+            $.ajax({
+                url:url,
+                type:'DELETE',
+                data:data,
+                success: function(result){
+                    // Redirection vers page index
+                    window.location.href = myUrl;
+
+                    // Affichage du message
+                    $('#message_info').append(
+                        new Noty({
+                            type: 'success',
+                            layout: 'topRight',
+                            theme: 'mint',
+                            text: result.message,
+                            timeout: 5000,
+                            progressBar: true,
+                            closeWith: ['click', 'button'],
+                            animation: {
+                                open: 'noty_effects_open',
+                                close: 'noty_effects_close'
+                            },
+                            id: false,
+                            force: false,
+                            killer: false,
+                            queue: 'global',
+                            container: false,
+                            buttons: [],
+                            sounds: {
+                                sources: [],
+                                volume: 1,
+                                conditions: []
+                            },
+                            titleCount: {
+                                conditions: []
+                            },
+                            modal: false
+                        }).show()
+                    );
+                },
+                error: function(){
+                    console.log('Oups..., Une erreur est survenue');
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     */
+    delete_contact_done_row(){
+        $('.contact_done_delete').on('click', function(e){
+            e.preventDefault();
+            let row = $(this).parents('tr');
+            let id = row.data('id');
+            let form = $('#form-contact_done-delete');
+            let url = form.attr('action').replace(':CONTACT_DONE_ID', id);
+            let data = form.serialize();
+
+            $.ajax({
+                url:url,
+                type:'PUT',
+                data:data,
+                success: function(result){
+                    // Changement d'êtat du bouton done
+                    if(result.done === 0) {
+                        $('#status_button_done').removeClass('fa fa-times').addClass('fa fa-check');
+                    } else if(result.done === 1) {
+                        $('#status_button_done').removeClass('fa fa-check').addClass('fa fa-times');
+                    }
+                },
+                error: function(){
+                    console.log('Oups..., Une erreur est survenue');
+                }
+            });
+        });
+    }
+
 }

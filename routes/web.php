@@ -38,6 +38,11 @@ Route::resource('/dashboard/cgu', 'Admin\CguController', ['only' => ['index', 'e
 Route::resource('/dashboard/langue', 'Admin\LangueController', ['only' => ['index', 'edit', 'update']]);
 // Contact
 Route::resource('/dashboard/contact', 'Admin\ContactController', ['only' => ['index', 'show', 'destroy']]);
+Route::put('/dashboard/contact/done/{contact}', ['as' => 'contact.done', 'uses' => 'Admin\ContactController@done']);
+// Portfolios
+Route::resource('/dashboard/portfolios', 'Admin\PortfoliosController');
+// CV
+Route::resource('/dashboard/cv', 'Admin\CvController');
 
 
 /*
