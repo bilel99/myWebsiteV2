@@ -374,9 +374,9 @@ class Ajax {
                 success: function(result){
                     // Changement d'êtat du bouton done
                     if(result.done === 0) {
-                        $('#status_button_done').removeClass('fa fa-times').addClass('fa fa-check');
-                    } else if(result.done === 1) {
                         $('#status_button_done').removeClass('fa fa-check').addClass('fa fa-times');
+                    } else if(result.done === 1) {
+                        $('#status_button_done').removeClass('fa fa-times').addClass('fa fa-check');
                     }
                 },
                 error: function(){

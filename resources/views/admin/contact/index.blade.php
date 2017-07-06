@@ -48,13 +48,12 @@
                                 <td>{{mb_strimwidth($row->sujet, 0, 100, '...')}}</td>
                                 <td>{{mb_strimwidth($row->text, 0, 100, '...')}}</td>
                                 <td>
-                                    {{$row->done === 0 || $row->done === null ? 'non traité' : 'traité'}}
                                     {!! Form::open(['route'=>['contact.done', ':CONTACT_DONE_ID'], 'method' => 'DEL', 'id' => 'form-contact_done-delete']) !!}
                                         <a class="btn btn-default btn-xs contact_done_delete">
                                             @if($row->done === 0)
-                                                <i id="status_button_done" class="fa fa-check"></i>
-                                            @elseif($row->done === 1)
                                                 <i id="status_button_done" class="fa fa-times"></i>
+                                            @elseif($row->done === 1)
+                                                <i id="status_button_done" class="fa fa-check"></i>
                                             @endif
                                         </a>
                                     {!! Form::close() !!}
