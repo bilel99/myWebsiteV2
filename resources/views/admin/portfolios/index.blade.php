@@ -7,9 +7,6 @@
 
             <h2 class="page-title">Portfolios</h2>
 
-
-
-
             <div class="raw">
                 <div id="content">
                     @foreach($portfolios as $row)
@@ -31,10 +28,6 @@
                     @endforeach
                 </div>
             </div>
-
-
-
-
 
         </div>
     </div>

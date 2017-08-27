@@ -12,24 +12,39 @@
     <li class="user">
         <a href="#"><i class="fa fa-user"></i>User</a>
         <ul>
-            <li><a href="{{route('user.index')}}"><i class="fa fa-pie-chart"></i>Gestion User</a></li>
-            <li><a href="{{route('roleUser.index')}}"><i class="fa fa-users"></i>Gestion Rôle</a></li>
+            <li><a href="{{route('user.index')}}"><i class="fa fa-pie-chart"></i>User</a></li>
+            <li><a href="{{route('roleUser.index')}}"><i class="fa fa-users"></i>Rôle</a></li>
         </ul>
     </li>
 
     <li class="homePage">
         <a href="#"><i class="fa fa-home"></i>Home page</a>
-            <ul>
-                <li><a href="{{route('homePage.index')}}"><i class="fa fa-pie-chart"></i>Gestion Home-page</a></li>
-                <li><a href="{{route('homePage.create')}}"><i class="fa fa-plus-circle"></i>Création Home-page</a></li>
-                <li><a href="{{route('phraseculte.index')}}"><i class="fa fa-pie-chart"></i>Gestion Phrase culte</a></li>
-                <li><a href="{{route('phraseculte.create')}}"><i class="fa fa-plus-circle"></i>Création Phrase culte</a></li>
-                <li><a href="{{route('temoignage.index')}}"><i class="fa fa-pie-chart"></i>Gestion Témoignage</a></li>
-                <li><a href="{{route('temoignage.create')}}"><i class="fa fa-plus-circle"></i>Création Témoignage</a></li>
-            </ul>
+        <ul>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Home-page</a>
+                <ul>
+                    <li><a href="{{route('homePage.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('homePage.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Phrase culte</a>
+                <ul>
+                    <li><a href="{{route('phraseculte.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('phraseculte.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Gestion Témoignage</a>
+                <ul>
+                    <li><a href="{{route('temoignage.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('temoignage.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
+                </ul>
+            </li>
+        </ul>
     </li>
 
-    <li class="homePage">
+    <li class="extras">
         <a href="#"><i class="fa fa-plus"></i>Extras</a>
         <ul>
             <li><a href="{{route('cgu.index')}}"><i class="fa fa-pie-chart"></i>CGU</a></li>
@@ -49,8 +64,49 @@
     <li class="cv">
         <a href="#"><i class="fa fa-tasks"></i>CV</a>
         <ul>
-            <li><a href="{{route('cv.index')}}"><i class="fa fa-pie-chart"></i>CV</a></li>
-            <li><a href="{{route('cv.create')}}"><i class="fa fa-plus-circle"></i>Création CV</a></li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>CV</a>
+                <ul>
+                    <li><a href="{{route('cv.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('cv.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Formation</a>
+                <ul>
+                    <li><a href="{{route('formation.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Groupe compétence</a>
+                <ul>
+                    <li><a href="{{route('groupecompetence.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Compétence</a>
+                <ul>
+                    <li><a href="{{route('competence.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Expérience</a>
+                <ul>
+                    <li><a href="{{route('experience.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Compétence Langue</a>
+                <ul>
+                    <li><a href="{{route('competenceluiguistique.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pie-chart"></i>Intêret</a>
+                <ul>
+                    <li><a href="{{route('interetloisir.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
 

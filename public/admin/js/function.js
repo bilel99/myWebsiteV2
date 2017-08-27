@@ -32,7 +32,6 @@ $(document).ready(function () {
     if (param === linkSidebar) {
         $('.' + param).addClass('open');
     }
-
 });
 
 /**

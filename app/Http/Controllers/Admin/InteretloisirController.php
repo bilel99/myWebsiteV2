@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CvController extends Controller
+class InteretloisirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class CvController extends Controller
      */
     public function index()
     {
-        $cv = \App\Cv::with('langue', 'user', 'moi', 'formation', 'competence', 'experience', 'competenceLinguistique', 'interetLoisir')->get();
-        return view('admin.cv.index', compact('cv'));
+        //
     }
 
     /**
@@ -25,9 +24,7 @@ class CvController extends Controller
      */
     public function create()
     {
-        $langue = \App\Langue::pluck('label', 'id');
-        $user = \App\User::pluck('email', 'id');
-        return view('admin.cv.create', compact('langue', 'user'));
+        //
     }
 
     /**
@@ -38,8 +35,7 @@ class CvController extends Controller
      */
     public function store(Request $request)
     {
-        $cv = new \App\Cv;
-        
+        //
     }
 
     /**

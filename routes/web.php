@@ -43,6 +43,27 @@ Route::put('/dashboard/contact/done/{contact}', ['as' => 'contact.done', 'uses' 
 Route::resource('/dashboard/portfolios', 'Admin\PortfoliosController');
 // CV
 Route::resource('/dashboard/cv', 'Admin\CvController');
+// Formation
+Route::resource('/dashboard/formation', 'Admin\FormationController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+// Groupe compétence
+Route::resource('/dashboard/groupecompetence', 'Admin\GroupeCompetenceController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+// Compétence
+Route::resource('/dashboard/competence', 'Admin\CompetenceController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+// Expérience
+Route::resource('/dashboard/experience', 'Admin\ExperienceController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+// Compétence Luiguistique
+Route::resource('/dashboard/competenceluiguistique', 'Admin\CompetenceLuiguistiqueController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+// Intéret loisir
+Route::resource('/dashboard/interetloisir', 'Admin\InteretloisirController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| FRONT OFFICES
+|
+*/
 
 
 /*
