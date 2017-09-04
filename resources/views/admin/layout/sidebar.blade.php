@@ -75,36 +75,42 @@
                 <a href="#"><i class="fa fa-pie-chart"></i>Formation</a>
                 <ul>
                     <li><a href="{{route('formation.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('formation.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-pie-chart"></i>Groupe compétence</a>
                 <ul>
                     <li><a href="{{route('groupecompetence.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('groupecompetence.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-pie-chart"></i>Compétence</a>
                 <ul>
                     <li><a href="{{route('competence.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('competence.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-pie-chart"></i>Expérience</a>
                 <ul>
                     <li><a href="{{route('experience.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('experience.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-pie-chart"></i>Compétence Langue</a>
                 <ul>
                     <li><a href="{{route('competenceluiguistique.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('competenceluiguistique.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-pie-chart"></i>Intêret</a>
                 <ul>
-                    <li><a href="{{route('interetloisir.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('InteretLoisir.index')}}"><i class="fa fa-pie-chart"></i>Gestion</a></li>
+                    <li><a href="{{route('InteretLoisir.create')}}"><i class="fa fa-plus-circle"></i>Création</a></li>
                 </ul>
             </li>
         </ul>

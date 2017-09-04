@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Competence;
+use App\GroupCompetence;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,9 @@ class CompetenceController extends Controller
      */
     public function index()
     {
-        //
+        $competence = \App\Competence::with('group')->get();
+        $group = \App\GroupCompetence::get();
+        return view('admin.competence.index', compact('competence', 'group'));
     }
 
     /**
@@ -24,7 +28,8 @@ class CompetenceController extends Controller
      */
     public function create()
     {
-        //
+        $group = \App\GroupCompetence::pluck('nom_groupe', 'id');
+        return view('admin.competence.create', compact('group'));
     }
 
     /**
@@ -35,18 +40,23 @@ class CompetenceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $competence = new \App\Competence;
+        $competence->group_id = $request->group_id;
+        $competence->titre = $request->titre;
+        $competence->savoir = $request->savoir;
+        $competence->niveau = $request->niveau;
+        $competence->save();
+        return redirect()->route('competence.index')->with('success', 'Enregistrement éffectué avec succès !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function storeGroup(Request $request)
     {
-        //
+        // Create Group Competence
+        $group = new \App\GroupCompetence;
+        $group->nom_groupe = $request->nom_groupe;
+        $group->status = $request->status;
+        $group->save();
+        return redirect()->route('competence.index')->with('success', 'Enregistrement éffectué avec succès !');
     }
 
     /**
@@ -55,9 +65,10 @@ class CompetenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Competence $competence)
     {
-        //
+        $group = \App\GroupCompetence::pluck('nom_groupe', 'id');
+        return view('admin.competence.edit', compact('competence', 'group'));
     }
 
     /**
@@ -67,9 +78,14 @@ class CompetenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Competence $competence)
     {
-        //
+        $competence->group_id = $request->group_id;
+        $competence->titre = $request->titre;
+        $competence->savoir = $request->savoir;
+        $competence->niveau = $request->niveau;
+        $competence->save();
+        return redirect()->route('competence.index')->with('success', 'Modification éffectué avec succès !');
     }
 
     /**
@@ -78,8 +94,35 @@ class CompetenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Competence $competence)
     {
-        //
+        $competence->delete();
+
+        // AJAX
+        $message = 'Suppression éffectué avec succès !';
+        if($request->ajax()){
+            return response()->json([
+                'message' => $message
+            ]);
+            return redirect()->route('competence.index');
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param GroupCompetence $groupCompetence
+     */
+    public function destroyGroup(Request $request, GroupCompetence $destroyGroup)
+    {
+        $destroyGroup->delete();
+
+        // AJAX
+        $message = 'Suppression éffectué avec succès !';
+        if($request->ajax()){
+            return response()->json([
+                'message' => $message
+            ]);
+            return redirect()->route('competence.index');
+        }
     }
 }

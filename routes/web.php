@@ -44,17 +44,19 @@ Route::resource('/dashboard/portfolios', 'Admin\PortfoliosController');
 // CV
 Route::resource('/dashboard/cv', 'Admin\CvController');
 // Formation
-Route::resource('/dashboard/formation', 'Admin\FormationController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+Route::resource('/dashboard/formation', 'Admin\FormationController');
 // Groupe compétence
-Route::resource('/dashboard/groupecompetence', 'Admin\GroupeCompetenceController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+Route::resource('/dashboard/groupecompetence', 'Admin\GroupeCompetenceController');
 // Compétence
-Route::resource('/dashboard/competence', 'Admin\CompetenceController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+Route::post('/dashboard/competence/store_group', ['as' => 'admin.store_group', 'uses' => 'Admin\CompetenceController@storeGroup']);
+Route::delete('/dashboard/competence/destroy_group/{destroyGroup}', ['as' => 'admin.destroy_group', 'uses' => 'Admin\CompetenceController@destroyGroup']);
+Route::resource('/dashboard/competence', 'Admin\CompetenceController');
 // Expérience
-Route::resource('/dashboard/experience', 'Admin\ExperienceController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+Route::resource('/dashboard/experience', 'Admin\ExperienceController');
 // Compétence Luiguistique
-Route::resource('/dashboard/competenceluiguistique', 'Admin\CompetenceLuiguistiqueController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+Route::resource('/dashboard/competenceluiguistique', 'Admin\CompetenceLuiguistiqueController');
 // Intéret loisir
-Route::resource('/dashboard/interetloisir', 'Admin\InteretloisirController', ['only' => ['index', 'create', 'store', 'show', 'destroy']]);
+Route::resource('/dashboard/InteretLoisir', 'Admin\InteretloisirController');
 
 /*
 |--------------------------------------------------------------------------

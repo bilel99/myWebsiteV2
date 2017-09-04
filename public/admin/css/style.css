@@ -1496,6 +1496,14 @@ li {
     display: inline;
 }
 
+#form-interet-delete {
+    display: inline;
+}
+
+#form-competence-delete {
+    display: inline;
+}
+
 /* Les couleurs des boutons d'action */
 .ico_show  {
     color: #0a568c;

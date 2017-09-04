@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\CompetenceLinguistique;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class CompetenceLuiguistiqueController extends Controller
      */
     public function index()
     {
-        //
+        $competenceLuiguistique = \App\CompetenceLinguistique::get();
+        return view('admin.competenceLuiguistique.index', compact('competenceLuiguistique'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CompetenceLuiguistiqueController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.competenceLuiguistique.create');
     }
 
     /**
@@ -35,18 +37,12 @@ class CompetenceLuiguistiqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $competenceLangue = new \App\CompetenceLinguistique;
+        $competenceLangue->titre = $request->titre;
+        $competenceLangue->langue = $request->langue;
+        $competenceLangue->niveau = $request->niveau;
+        $competenceLangue->save();
+        return redirect()->route('competenceluiguistique.index')->with('success', 'Enregistrement éffectué avec succès !');
     }
 
     /**
@@ -55,9 +51,9 @@ class CompetenceLuiguistiqueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CompetenceLinguistique $competenceluiguistique)
     {
-        //
+        return view('admin.competenceLuiguistique.edit', compact('competenceluiguistique'));
     }
 
     /**
@@ -67,9 +63,13 @@ class CompetenceLuiguistiqueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, CompetenceLinguistique $competenceluiguistique)
     {
-        //
+        $competenceluiguistique->titre = $request->titre;
+        $competenceluiguistique->langue = $request->langue;
+        $competenceluiguistique->niveau = $request->niveau;
+        $competenceluiguistique->save();
+        return redirect()->route('competenceluiguistique.index')->with('success', 'Modification éffectué avec succès !');
     }
 
     /**
@@ -78,8 +78,17 @@ class CompetenceLuiguistiqueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CompetenceLinguistique $competenceluiguistique, Request $request)
     {
-        //
+        $competenceluiguistique->delete();
+
+        // AJAX
+        $message = 'Suppression éffectué avec succès !';
+        if($request->ajax()){
+            return response()->json([
+                'message' => $message
+            ]);
+        }
+        return redirect()->route('competenceluiguistique.index');
     }
 }

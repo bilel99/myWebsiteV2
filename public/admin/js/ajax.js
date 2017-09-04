@@ -386,4 +386,181 @@ class Ajax {
         });
     }
 
+    /**
+     *
+     */
+    delete_interetLoisir_row(){
+        $('.interet_delete').on('click', function(e){
+            // Permet de supprimer le comportement par default du navigateur
+            e.preventDefault();
+            let row = $(this).parents('tr');
+            let id = row.data('id');
+            let form = $('#form-interet-delete');
+            let url = form.attr('action').replace(':INTERET_ID', id);
+            let data = form.serialize();
+
+            $.ajax({
+                url:url,
+                type:'DELETE',
+                data:data,
+                success: function(result){
+                    // Efface ligne du tableau
+                    $('.interet_'+id).fadeOut();
+                    // Affichage du message
+                    $('#message_info').append(
+                        new Noty({
+                            type: 'success',
+                            layout: 'topRight',
+                            theme: 'mint',
+                            text: result.message,
+                            timeout: 5000,
+                            progressBar: true,
+                            closeWith: ['click', 'button'],
+                            animation: {
+                                open: 'noty_effects_open',
+                                close: 'noty_effects_close'
+                            },
+                            id: false,
+                            force: false,
+                            killer: false,
+                            queue: 'global',
+                            container: false,
+                            buttons: [],
+                            sounds: {
+                                sources: [],
+                                volume: 1,
+                                conditions: []
+                            },
+                            titleCount: {
+                                conditions: []
+                            },
+                            modal: false
+                        }).show()
+                    );
+                },
+                error: function(){
+                    console.log('Oups..., Une erreur est survenue');
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     */
+    delete_competence_row(){
+        $('.competence_delete').on('click', function(e){
+            // Permet de supprimer le comportement par default du navigateur
+            e.preventDefault();
+            let row = $(this).parents('tr');
+            let id = row.data('id');
+            let form = $('#form-competence-delete');
+            let url = form.attr('action').replace(':COMPETENCE_ID', id);
+            let data = form.serialize();
+
+            $.ajax({
+                url:url,
+                type:'DELETE',
+                data:data,
+                success: function(result){
+                    // Efface ligne du tableau
+                    $('.competence_'+id).fadeOut();
+                    // Affichage du message
+                    $('#message_info').append(
+                        new Noty({
+                            type: 'success',
+                            layout: 'topRight',
+                            theme: 'mint',
+                            text: result.message,
+                            timeout: 5000,
+                            progressBar: true,
+                            closeWith: ['click', 'button'],
+                            animation: {
+                                open: 'noty_effects_open',
+                                close: 'noty_effects_close'
+                            },
+                            id: false,
+                            force: false,
+                            killer: false,
+                            queue: 'global',
+                            container: false,
+                            buttons: [],
+                            sounds: {
+                                sources: [],
+                                volume: 1,
+                                conditions: []
+                            },
+                            titleCount: {
+                                conditions: []
+                            },
+                            modal: false
+                        }).show()
+                    );
+                },
+                error: function(){
+                    console.log('Oups..., Une erreur est survenue');
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     */
+    delete_group_row(){
+        $('.group_delete').on('click', function(e){
+            // Permet de supprimer le comportement par default du navigateur
+            e.preventDefault();
+            let row = $(this).parents('tr');
+            let id = row.data('id');
+            let form = $('#form-group-delete');
+            let url = form.attr('action').replace(':GROUP_ID', id);
+            let data = form.serialize();
+
+            $.ajax({
+                url:url,
+                type:'DELETE',
+                data:data,
+                success: function(result){
+                    // Efface ligne du tableau
+                    $('.group_'+id).fadeOut();
+                    // Affichage du message
+                    $('#message_info').append(
+                        new Noty({
+                            type: 'success',
+                            layout: 'topRight',
+                            theme: 'mint',
+                            text: result.message,
+                            timeout: 5000,
+                            progressBar: true,
+                            closeWith: ['click', 'button'],
+                            animation: {
+                                open: 'noty_effects_open',
+                                close: 'noty_effects_close'
+                            },
+                            id: false,
+                            force: false,
+                            killer: false,
+                            queue: 'global',
+                            container: false,
+                            buttons: [],
+                            sounds: {
+                                sources: [],
+                                volume: 1,
+                                conditions: []
+                            },
+                            titleCount: {
+                                conditions: []
+                            },
+                            modal: false
+                        }).show()
+                    );
+                },
+                error: function(){
+                    console.log('Oups..., Une erreur est survenue');
+                }
+            });
+        });
+    }
+
 }

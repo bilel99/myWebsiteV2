@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\InteretLoisir;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class InteretloisirController extends Controller
+class InteretLoisirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class InteretloisirController extends Controller
      */
     public function index()
     {
-        //
+        $interet = \App\InteretLoisir::get();
+        return view('admin.InteretLoisir.index', compact('interet'));
     }
 
     /**
@@ -24,7 +26,7 @@ class InteretloisirController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.InteretLoisir.create');
     }
 
     /**
@@ -35,18 +37,11 @@ class InteretloisirController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $interet = new InteretLoisir;
+        $interet->titre = $request->titre;
+        $interet->loisir = $request->loisir;
+        $interet->save();
+        return redirect()->route('InteretLoisir.index')->with('success', 'Votre enregistrement est terminer !');
     }
 
     /**
@@ -55,9 +50,9 @@ class InteretloisirController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(InteretLoisir $InteretLoisir)
     {
-        //
+        return view('admin.interetLoisir.edit', compact('InteretLoisir'));
     }
 
     /**
@@ -67,9 +62,12 @@ class InteretloisirController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, InteretLoisir $InteretLoisir)
     {
-        //
+        $InteretLoisir->titre = $request->titre;
+        $InteretLoisir->loisir = $request->loisir;
+        $InteretLoisir->save();
+        return redirect()->route('InteretLoisir.index')->with('success', 'Modification éffectué avec succès !');
     }
 
     /**
@@ -78,8 +76,18 @@ class InteretloisirController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, InteretLoisir $InteretLoisir)
     {
-        //
+        $InteretLoisir->delete();
+
+        // AJAX
+        $message = 'Suppression éffectué avec succès !';
+        if($request->ajax()){
+            return response()->json([
+               'message' => $message
+            ]);
+        }
+
+        return redirect()->route('InteretLoisir.index');
     }
 }

@@ -12,6 +12,9 @@ $(document).ready(function () {
     ajax.delete_contact_row();
     ajax.delete_portfolios_row();
     ajax.delete_contact_done_row();
+    ajax.delete_interetLoisir_row();
+    ajax.delete_competence_row();
+    ajax.delete_group_row();
 });
 
 

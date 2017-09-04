@@ -8,7 +8,7 @@ class Competence extends Model {
     protected $guarded = [];
 
     public function group(){
-        return $this->belongsTo('\App\Competence', 'group_id');
+        return $this->belongsTo('\App\GroupCompetence', 'group_id');
     }
 
     public function getCreateddateAttribute(){
