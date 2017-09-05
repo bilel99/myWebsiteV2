@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Formation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class FormationController extends Controller
      */
     public function index()
     {
-        //
+        $formation = \App\Formation::get();
+        return view('admin.formation.index', compact('formation'));
     }
 
     /**
@@ -24,7 +26,7 @@ class FormationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.formation.create');
     }
 
     /**
@@ -35,18 +37,14 @@ class FormationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $formation = new \App\Formation;
+        $formation->titre = $request->titre;
+        $formation->date_debut = $request->date_debut;
+        $formation->date_fin = $request->date_fin;
+        $formation->sujet = $request->sujet;
+        $formation->ecole = $request->ecole;
+        $formation->save();
+        return redirect()->route('formation.index')->with('success', 'Enregistrement éffectué avec succès !');
     }
 
     /**
@@ -55,9 +53,9 @@ class FormationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Formation $formation)
     {
-        //
+        return view('admin.formation.edit', compact('formation'));
     }
 
     /**
@@ -67,9 +65,15 @@ class FormationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Formation $formation)
     {
-        //
+        $formation->titre = $request->titre;
+        $formation->date_debut = $request->date_debut;
+        $formation->date_fin = $request->date_fin;
+        $formation->sujet = $request->sujet;
+        $formation->ecole = $request->ecole;
+        $formation->save();
+        return redirect()->route('formation.index')->with('success', 'Modification éffectué avec succès !');
     }
 
     /**
@@ -78,8 +82,17 @@ class FormationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Formation $formation, Request $request)
     {
-        //
+        $formation->delete();
+
+        // AJAX
+        $message = 'Suppression éffectué avec succès !';
+        if($request->ajax()){
+            return response()->json([
+                'message' => $message
+            ]);
+        }
+        return redirect()->route('formation.index');
     }
 }

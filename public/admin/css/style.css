@@ -1508,6 +1508,10 @@ li {
     display: inline;
 }
 
+#form-formation-delete {
+    display: inline;
+}
+
 /* Les couleurs des boutons d'action */
 .ico_show  {
     color: #0a568c;
