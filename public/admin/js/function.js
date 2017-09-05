@@ -17,6 +17,7 @@ $(document).ready(function () {
     ajax.delete_group_row();
     ajax.delete_competencelinguistique_row();
     ajax.delete_formation_row();
+    ajax.delete_experience_row();
 });
 
 

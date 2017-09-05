@@ -626,13 +626,13 @@ class Ajax {
      *
      */
     delete_formation_row(){
-        $('.formation_delete').on('click', function(e){
+        $('.experience_delete').on('click', function(e){
             // Permet de supprimer le comportement par default du navigateur
             e.preventDefault();
             let row = $(this).parents('tr');
             let id = row.data('id');
-            let form = $('#form-formation-delete');
-            let url = form.attr('action').replace(':FORMATION_ID', id);
+            let form = $('#form-experience-delete');
+            let url = form.attr('action').replace(':EXPERIENCE_ID', id);
             let data = form.serialize();
 
             $.ajax({
@@ -641,7 +641,66 @@ class Ajax {
                 data:data,
                 success: function(result){
                     // Efface ligne du tableau
-                    $('.formation_'+id).fadeOut();
+                    $('.experience_'+id).fadeOut();
+                    // Affichage du message
+                    $('#message_info').append(
+                        new Noty({
+                            type: 'success',
+                            layout: 'topRight',
+                            theme: 'mint',
+                            text: result.message,
+                            timeout: 5000,
+                            progressBar: true,
+                            closeWith: ['click', 'button'],
+                            animation: {
+                                open: 'noty_effects_open',
+                                close: 'noty_effects_close'
+                            },
+                            id: false,
+                            force: false,
+                            killer: false,
+                            queue: 'global',
+                            container: false,
+                            buttons: [],
+                            sounds: {
+                                sources: [],
+                                volume: 1,
+                                conditions: []
+                            },
+                            titleCount: {
+                                conditions: []
+                            },
+                            modal: false
+                        }).show()
+                    );
+                },
+                error: function(){
+                    console.log('Oups..., Une erreur est survenue');
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     */
+    delete_experience_row(){
+        $('.experience_delete').on('click', function(e){
+            // Permet de supprimer le comportement par default du navigateur
+            e.preventDefault();
+            let row = $(this).parents('tr');
+            let id = row.data('id');
+            let form = $('#form-experience-delete');
+            let url = form.attr('action').replace(':experience_ID', id);
+            let data = form.serialize();
+
+            $.ajax({
+                url:url,
+                type:'DELETE',
+                data:data,
+                success: function(result){
+                    // Efface ligne du tableau
+                    $('.experience_'+id).fadeOut();
                     // Affichage du message
                     $('#message_info').append(
                         new Noty({
