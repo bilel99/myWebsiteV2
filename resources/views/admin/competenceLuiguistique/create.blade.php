@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="page-title">Création Intêret loisir</h2>
+                <h2 class="page-title">Création compétence linguistique</h2>
 
                 <!-- Edition -->
                 <div class="col-md-12">
@@ -13,7 +13,7 @@
                             <h3 class="panel-title">Création</h3>
                         </div>
                         <div class="panel-body">
-                            {!! Form::open(['method' => 'post', 'url' => route('InteretLoisir.store')]) !!}
+                            {!! Form::open(['method' => 'post', 'url' => route('competenceluiguistique.store')]) !!}
 
                             <!-- Création champ titre -->
                             <div class="col-md-3">
@@ -27,17 +27,33 @@
                                 </div>
                             </div>
 
-                            <!-- Création champ text textarea -->
+                            <!-- Création champ langue -->
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    {!! Form::label('loisir', 'Loisir * :', array('class' => 'form-control')) !!}
+                                    {!! Form::label('langue', 'Langue * :', array('class' => 'form-control')) !!}
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <textarea name="loisir" id="loisir" cols="30" rows="10" class="form-control">
-                                        {{old('loisir')}}
-                                    </textarea>
+                                    {!! Form::text('langue', '', array('class'=>'form-control', 'name'=>'langue', 'id'=>'langue', 'placeholder' => 'Votre langue',  'value'=>old('langue'))) !!}
+                                </div>
+                            </div>
+
+                            <!-- Création champ select -->
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    {!! Form::label('niveau', 'Niveau * :', array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="niveau" id="niveau" class="form-control">
+                                        <option value="faible">faible</option>
+                                        <option value="scolaire">scolaire</option>
+                                        <option value="bon">bon</option>
+                                        <option value="natal">natal</option>
+                                        <option value="technique">technique</option>
+                                    </select>
                                 </div>
                             </div>
 
